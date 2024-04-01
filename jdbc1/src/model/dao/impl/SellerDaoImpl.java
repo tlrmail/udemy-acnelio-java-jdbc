@@ -98,8 +98,6 @@ public class SellerDaoImpl implements SellerDao {
 					+ "ON s.DepartmentId = p.id\r\n"
 					+ "ORDER BY Name;");
 			
-			ps.setInt(1, department.getId());
-
 			rs = ps.executeQuery();
 			
 			Map<Integer, Department> mapDepartment = new HashMap<>();
