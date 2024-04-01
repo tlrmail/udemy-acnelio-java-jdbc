@@ -1,0 +1,14 @@
+package model.dao;
+
+import model.entities.Department;
+
+public interface DepartmentDao {
+	
+	public void insert(Department department);
+	public void update(Department department);
+	public void deletebyId(Integer id);
+	public void findById(Integer id);
+	public List<Department> findAll();
+
+
+}

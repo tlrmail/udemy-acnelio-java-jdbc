@@ -1,1 +1,5 @@
 1711970539642	Copy compilation unit
+1711980337553	Rename type 'Seller'
+1711980830683	Move compilation unit
+1711980898062	Rename type 'SellerDaoImpl'
+1711980994043	Rename type 'SellerDaoJDBC'

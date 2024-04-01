@@ -1,0 +1,12 @@
+package model.dao;
+
+import java.sql.Connection;
+
+import model.dao.impl.SellerDaoImpl;
+
+public class DaoFactory {
+	
+	public static SellerDao createSellerDao() {
+		return new SellerDaoImpl();
+	}
+}

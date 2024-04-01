@@ -1,0 +1,18 @@
+package model.dao;
+
+import java.sql.Connection;
+
+import model.dao.impl.SellerDaoImpl;
+
+public class DaoFactory {
+	
+	private Connection connection;
+	
+	public SellerDaoImpl(Connection conn) {
+		this.connection = conn;
+	}
+
+	public static SellerDao createSellerDao() {
+		return new SellerDaoImpl();
+	}
+}

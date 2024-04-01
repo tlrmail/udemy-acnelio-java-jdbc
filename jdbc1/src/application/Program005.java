@@ -38,9 +38,15 @@ public class Program005 {
 		System.out.println();
 		System.out.println("*** TESTE 03: seller findAll ***");
 		List<Seller> list02 = sellerDao.findAll();
-		
-		for(Seller s: list02) {
+
+		for (Seller s : list02) {
 			System.out.println(s);
 		}
-}
+
+		System.out.println();
+		System.out.println("*** TESTE 04: seller insert ***");
+		Seller seller03 = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, department); 
+		sellerDao.insert(seller03);
+		
+	}
 }
