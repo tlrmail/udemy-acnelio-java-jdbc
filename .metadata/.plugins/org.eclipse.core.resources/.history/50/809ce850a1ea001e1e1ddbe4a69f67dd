@@ -1,0 +1,10 @@
+package db;
+
+import java.util.Properties;
+
+public class DB {
+	
+	private static Properties loadProperties;
+	
+	
+}

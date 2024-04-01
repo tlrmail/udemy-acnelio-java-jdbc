@@ -1,0 +1,27 @@
+package application;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import db.DB;
+
+public class Program002 {
+
+	public static void main(String[] args) {
+		
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = DB.getConnection();
+			
+			ps = connection.prepareStatement("UPDATE seller " + " SET BaseSalary = BaseSalary + ? " + " WHERE " + "(DepartmentId = ?)");
+		
+			ps.setDouble(1, 200.0);
+			ps.setInt(2, 2);
+		}catch(SQLException e) {
+			
+		}
+		
+	}
+}

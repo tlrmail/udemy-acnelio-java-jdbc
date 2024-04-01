@@ -1,0 +1,25 @@
+package application;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+
+import db.DB;
+
+
+public class Program001 {
+	
+	public static void main(String[] args) {
+		
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = DB.getConnection();
+			ps = connection.prepareStatement("SELECT * FROM department;");
+			
+		}catch() {
+			
+		}
+		
+	}
+
+}

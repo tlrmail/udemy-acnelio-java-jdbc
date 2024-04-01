@@ -1,0 +1,33 @@
+package application;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+
+import db.DB;
+
+
+public class Program001 {
+	
+	public static void main(String[] args) {
+		
+		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+		Connection connection = null;
+		PreparedStatement ps = null;
+		try {
+			connection = DB.getConnection();
+			ps = connection.prepareStatement("INSERT INTO seller(Name, Email, BirthDate, BirthSalary, DepartmentId)" 
+					+ " VALUES(?, ?, ?, ?, ?);");
+			
+			ps.setString(1, "Carl Purple");
+			ps.setString(2, "carl@gmail.com");
+			ps.setDate(0, null);
+			
+		}catch(SQLException e) {
+			
+		}
+		
+	}
+
+}

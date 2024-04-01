@@ -1,0 +1,31 @@
+package application;
+
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.mysql.jdbc.Statement;
+
+import db.DB;
+
+public class Program {
+
+	public static void main(String[] args) {
+		
+
+		try {
+			Connection connection = DB.getConnConnection();
+			
+			Statement st = connection.createStatement();
+			
+			st.executeQuery("SELECT * FROM coursejdbc.department;");
+			
+			ResultSet rs = null;
+			
+		}catch(SQLException e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		
+		DB.closeConnection();
+	}
+}

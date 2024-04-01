@@ -1,0 +1,5 @@
+INDEX VERSION 1.134+C:\programacao\udemy\2024\Java-Nelio-Alves\Java-POO-Projetos-jdbc\.metadata\.plugins\org.eclipse.jdt.core
+2565356412.index
+4178919815.index
+1865797976.index
+2787183750.index
