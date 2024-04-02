@@ -90,12 +90,8 @@ public class SellerDaoImpl implements SellerDao {
 
 			ps.setInt(1, id);
 			
-			int rows = ps.executeUpdate();
+			ps.executeUpdate();
 
-			if(rows == 0) {
-				throw new DbException("Não há registro com esse id.");
-			}
-			
 		}catch(SQLException e) {
 			throw new DbException(e.getMessage());
 		}finally {

@@ -71,8 +71,13 @@ public class SellerDaoImpl implements SellerDao {
 			ps.setInt(5, seller.getDepartment().getId());
 			ps.setInt(6, seller.getId());
 			
-			ps.executeUpdate();
-
+			int rowsAffected = ps.executeUpdate();
+			if(rowsAffected > 0) {
+				ResultSet rs = ps.getGeneratedKeys();
+				DB.closeResultSet(rs);
+			}else {
+				throw new DbException("Unexpected error! No rows affected!");
+			}
 		}catch(SQLException e) {
 			throw new DbException(e.getMessage());
 		}finally {
@@ -82,25 +87,8 @@ public class SellerDaoImpl implements SellerDao {
 	}
 
 	@Override
-	public void deleteById(Integer id) {
+	public void deletebyId(Integer id) {
 
-		PreparedStatement ps = null;
-		try {
-			ps = connection.prepareStatement("DELETE FROM seller WHERE id = ?");
-
-			ps.setInt(1, id);
-			
-			int rows = ps.executeUpdate();
-
-			if(rows == 0) {
-				throw new DbException("Não há registro com esse id.");
-			}
-			
-		}catch(SQLException e) {
-			throw new DbException(e.getMessage());
-		}finally {
-			DB.closeStatement(ps);
-		}
 	}
 
 	@Override

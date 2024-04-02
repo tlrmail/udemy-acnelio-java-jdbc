@@ -65,7 +65,7 @@ public class Program005 {
 		Scanner sc = new Scanner(System.in);
 		int id = sc.nextInt();
 		sc.close();
-		sellerDao.deleteById(id);
+		sellerDao.update(id);
 		System.out.println("Deleted completed");
 	}
 }
