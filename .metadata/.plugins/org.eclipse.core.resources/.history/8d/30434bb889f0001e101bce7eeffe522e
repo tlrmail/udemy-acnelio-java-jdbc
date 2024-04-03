@@ -1,0 +1,61 @@
+package application;
+
+import java.util.Date;
+import java.util.List;
+import java.util.Scanner;
+
+import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
+import model.dao.SellerDao;
+import model.entities.Department;
+import model.entities.Seller;
+
+public class Program006 {
+
+	public static void main(String[] args) {
+
+		Department department = new Department(4, "Books");
+
+		System.out.println(department);
+
+		DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+
+		System.out.println();
+		System.out.println("*** TESTE 01: department findById ***");
+		Department department01 = departmentDao.findById(3);
+
+		System.out.println(department01);
+
+		System.out.println();
+		System.out.println("*** TESTE 02: department findAll ***");
+		List<Department> list01 = departmentDao.findAll();
+
+		for (Department d : list01) {
+			System.out.println(d);
+		}
+
+		System.out.println();
+		System.out.println("*** TESTE 04: seller insert ***");
+		Seller seller03 = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00, department);
+		sellerDao.insert(seller03);
+		System.out.println("Inserted! New id = " + seller03.getId());
+
+		System.out.println();
+		System.out.println("*** TESTE 05: seller update ***");
+		Seller seller04 = sellerDao.findById(10); // new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.00,
+													// department);
+		seller04.setName("Marta Waine");
+		seller04.setEmail("Marta @gmail.com");
+		sellerDao.update(seller04);
+		System.out.println("Update completed");
+
+		System.out.println();
+		System.out.println("*** TESTE 06: seller delete ***");
+		System.out.println("Enter id for delete test:");
+		Scanner sc = new Scanner(System.in);
+		int id = sc.nextInt();
+		sc.close();
+		sellerDao.deleteById(id);
+		System.out.println("Deleted completed");
+	}
+}
